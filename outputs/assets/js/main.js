@@ -1,6 +1,9 @@
 const WHATSAPP_URL = "https://wa.me/393315691636?text=Ciao%2C%20vorrei%20ricevere%20informazioni%20per%20un%20lavoro%20di%20ristrutturazione.";
 const PHONE_URL = "tel:+393315691636";
 const REVIEWS_URL = "https://www.google.com/search?sa=X&sca_esv=223d83bb33233bc3&rlz=1C1ONGR_itIT1053IT1053&sxsrf=APpeQnvj5803VjnVBFjkcPHPDB9aQLZm4Q:1783062480509&q=Ristrutturiamo+X+Professione+Recensioni&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDE0NTGwNDQ0MTc1szQ2M7cwMtvAyPiKUT0os7ikqLSkpLQoMzE3XyFCIaAoPy21uDgzPy9VISg1OTUPxMxcxEqsSgAeQeRrbwAAAA&rldimm=14154091147569367826&tbm=lcl&hl=it-ES&ved=2ahUKEwiDgY2u-bWVAxVIKvsDHQdhD6wQ9fQKegQIQhAG&biw=1197&bih=508&dpr=1.61#lkt=LocalPoiReviews";
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100088673796690";
+const INSTAGRAM_URL = "https://www.instagram.com/ristrutturiamo_x_professione?fbclid=IwY2xjawS0P1FleHRuA2FlbQIxMABicmlkETBmOFNHYk1zSHN0SEp4RWtGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpoqGQ7DQ3stdspaa2eAiihQ5xiPwxZ9OYVA-c5YHel-vaJgmPJvQBlGdf3d_aem_FoiPD_0f7io-esWfpt5mqA";
+const TIKTOK_URL = "https://www.tiktok.com/@ristrutturiamoxprofessio";
 
 const navItems = [
   { href: "index.html", label: "Home", id: "home" },
@@ -103,10 +106,10 @@ const chatKnowledge = [
     action: ["Vai a Chi siamo", "chi-siamo.html"]
   },
   {
-    triggers: ["social", "instagram", "facebook", "tiktok"],
-    q: "Dove vi seguo sui social?",
-    a: "Siamo su Instagram, Facebook e TikTok. Dalla pagina Chi siamo trovi i link diretti ai profili.",
-    action: ["Apri Chi siamo", "chi-siamo.html"]
+    triggers: ["social", "instagram", "facebook", "tiktok", "prima dopo", "prima/dopo", "cantieri", "galleria lavori"],
+    q: "Dove vedo lavori prima e dopo?",
+    a: "Per vedere lavori, cantieri, video e trasformazioni prima/dopo ti conviene aprire i profili social ufficiali. Instagram e TikTok sono i canali più immediati per i contenuti visuali.",
+    action: ["Apri Instagram", INSTAGRAM_URL]
   }
 ];
 
@@ -115,6 +118,7 @@ const quickQuestions = [
   "Come funziona il chiavi in mano?",
   "Posso mandarvi foto o video?",
   "Quanto costa una ristrutturazione?",
+  "Dove vedo lavori prima e dopo?",
   "Dove vi trovo?",
   "Quali sono gli orari?"
 ];
@@ -128,10 +132,26 @@ const icon = (name) => {
     tile: '<svg viewBox="0 0 24 24"><path d="M4 4h7v7H4z"/><path d="M13 4h7v7h-7z"/><path d="M4 13h7v7H4z"/><path d="M13 13h7v7h-7z"/></svg>',
     finish: '<svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 16 18 4"/><path d="m14 4 6 6"/><path d="M5 15l4 4"/></svg>',
     phone: '<svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
-    map: '<svg viewBox="0 0 24 24"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3z"/><path d="M9 3v15"/><path d="M15 6v15"/></svg>'
+    map: '<svg viewBox="0 0 24 24"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3z"/><path d="M9 3v15"/><path d="M15 6v15"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><path d="M17.2 6.8h.01"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24"><path d="M14 8h2V4h-2a5 5 0 0 0-5 5v3H7v4h2v4h4v-4h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg>',
+    tiktok: '<svg viewBox="0 0 24 24"><path d="M14 4v10.2a4.8 4.8 0 1 1-4-4.7"/><path d="M14 4c.8 3 2.7 4.8 6 5"/></svg>',
+    external: '<svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>',
+    ai: '<svg viewBox="0 0 24 24"><path d="M12 3l1.7 5.1L19 10l-5.3 1.9L12 17l-1.7-5.1L5 10l5.3-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/><path d="M5 15l.7 1.8L7.5 17.5l-1.8.7L5 20l-.7-1.8-1.8-.7 1.8-.7z"/></svg>'
   };
   return icons[name] || icons.tool;
 };
+
+const renderSocialButtons = (className = "social-link-buttons") => `
+  <div class="${className}" aria-label="Profili social con lavori e prima dopo">
+    ${socialLinks.map((social) => `
+      <a href="${social.href}" target="_blank" rel="noopener" aria-label="${social.name}: guarda lavori e prima dopo">
+        <span class="social-icon">${icon(social.icon)}</span>
+        <span>${social.name}</span>
+      </a>
+    `).join("")}
+  </div>
+`;
 
 const renderNav = (page) => navItems.map((item) => {
   const active = page === item.id ? " active" : "";
@@ -155,6 +175,12 @@ const footerLinks = navItems.flatMap((item) => [
   ...(item.children || [])
 ]);
 
+const socialLinks = [
+  { name: "Instagram", handle: "@ristrutturiamo_x_professione", href: INSTAGRAM_URL, icon: "instagram" },
+  { name: "Facebook", handle: "Ristrutturiamo X Professione", href: FACEBOOK_URL, icon: "facebook" },
+  { name: "TikTok", handle: "@ristrutturiamoxprofessio", href: TIKTOK_URL, icon: "tiktok" }
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page || "home";
   const header = document.querySelector("[data-header]");
@@ -173,8 +199,13 @@ document.addEventListener("DOMContentLoaded", () => {
           </a>
           <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
             ${renderNav(page)}
+            <div class="mobile-social-block">
+              <span>Guarda lavori e prima/dopo</span>
+              ${renderSocialButtons("mobile-social-buttons")}
+            </div>
           </nav>
           <div class="header-actions">
+            ${renderSocialButtons("header-socials")}
             <a class="btn btn-primary" href="${WHATSAPP_URL}" target="_blank" rel="noopener">Parla con noi</a>
             <button class="menu-toggle" type="button" aria-label="Apri menu" aria-controls="main-nav" aria-expanded="false">
               <span></span><span></span><span></span>
@@ -211,10 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div>
               <div class="footer-title">Social e orari</div>
+              <div class="footer-social-compact">
+                ${renderSocialButtons("social-link-buttons")}
+              </div>
               <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=100088673796690" target="_blank" rel="noopener">Facebook</a>
-                <a href="https://www.instagram.com/ristrutturiamo_x_professione?fbclid=IwY2xjawS0P1FleHRuA2FlbQIxMABicmlkETBmOFNHYk1zSHN0SEp4RWtGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpoqGQ7DQ3stdspaa2eAiihQ5xiPwxZ9OYVA-c5YHel-vaJgmPJvQBlGdf3d_aem_FoiPD_0f7io-esWfpt5mqA" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://www.tiktok.com/@ristrutturiamoxprofessio" target="_blank" rel="noopener">TikTok</a>
                 <span>Lun-Ven 08:00-18:30</span>
                 <span>Sabato 08:00-16:00</span>
               </div>
@@ -326,13 +357,13 @@ function mountChatbot() {
   host.setAttribute("aria-label", "Assistente contatti");
   host.innerHTML = `
     <button class="chatbot-fab" type="button" aria-expanded="false" aria-controls="chatbot-panel">
-      <span>?</span>
-      <strong>Hai domande?</strong>
+      <span class="ai-mark">${icon("ai")}<em>AI</em></span>
+      <strong>Assistente AI</strong>
     </button>
     <div class="chatbot-panel" id="chatbot-panel" hidden>
       <div class="chatbot-head">
         <div>
-          <span class="eyebrow">Assistente contatti</span>
+          <span class="ai-label"><span>${icon("ai")}</span> Assistente AI</span>
           <h2>Ciao, come possiamo aiutarti?</h2>
         </div>
         <button class="chatbot-close" type="button" aria-label="Chiudi chat">×</button>
