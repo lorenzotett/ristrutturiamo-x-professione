@@ -181,6 +181,35 @@ const socialLinks = [
   { name: "TikTok", handle: "@ristrutturiamoxprofessio", href: TIKTOK_URL, icon: "tiktok" }
 ];
 
+const flowLinks = [
+  { href: "servizi.html", label: "Scegli servizio", detail: "capisci cosa serve", icon: "tool" },
+  { href: "progetti.html", label: "Guarda lavori", detail: "prima/dopo e cantieri", icon: "instagram" },
+  { href: WHATSAPP_URL, label: "Invia foto", detail: "WhatsApp diretto", icon: "phone", external: true },
+  { href: "contatti.html", label: "Contatto", detail: "orari e recapiti", icon: "map" }
+];
+
+const renderFlowCards = () => `
+  <div class="flow-grid">
+    ${flowLinks.map((item, index) => `
+      <a class="flow-card" href="${item.href}" ${item.external ? 'target="_blank" rel="noopener"' : ""}>
+        <span class="flow-number">0${index + 1}</span>
+        <span class="flow-icon">${icon(item.icon)}</span>
+        <strong>${item.label}</strong>
+        <small>${item.detail}</small>
+      </a>
+    `).join("")}
+  </div>
+`;
+
+const renderMobileQuickBar = () => `
+  <nav class="mobile-quickbar" aria-label="Azioni rapide">
+    <a href="servizi.html"><span>${icon("tool")}</span><strong>Servizi</strong></a>
+    <a href="progetti.html"><span>${icon("instagram")}</span><strong>Lavori</strong></a>
+    <a href="${WHATSAPP_URL}" target="_blank" rel="noopener"><span>${icon("phone")}</span><strong>WhatsApp</strong></a>
+    <a href="${PHONE_URL}"><span>${icon("phone")}</span><strong>Chiama</strong></a>
+  </nav>
+`;
+
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page || "home";
   const header = document.querySelector("[data-header]");
@@ -199,6 +228,10 @@ document.addEventListener("DOMContentLoaded", () => {
           </a>
           <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
             ${renderNav(page)}
+            <div class="mobile-flow-block">
+              <span>Percorso rapido</span>
+              ${renderFlowCards()}
+            </div>
             <div class="mobile-social-block">
               <span>Guarda lavori e prima/dopo</span>
               ${renderSocialButtons("mobile-social-buttons")}
@@ -269,17 +302,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mountNavigation();
   mountChatbot();
+  mountSharedBlocks();
   mountRevealAnimations();
 });
+
+function mountSharedBlocks() {
+  document.querySelectorAll("[data-flow-cards]").forEach((node) => {
+    node.innerHTML = renderFlowCards();
+  });
+
+  if (!document.querySelector(".mobile-quickbar")) {
+    document.body.insertAdjacentHTML("beforeend", renderMobileQuickBar());
+  }
+}
 
 function mountNavigation() {
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
   if (menuToggle && nav) {
+    const setMenuOpen = (open) => {
+      menuToggle.setAttribute("aria-expanded", String(open));
+      nav.classList.toggle("is-open", open);
+      document.body.classList.toggle("nav-open", open);
+    };
+
     menuToggle.addEventListener("click", () => {
       const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!expanded));
-      nav.classList.toggle("is-open");
+      setMenuOpen(!expanded);
+    });
+
+    nav.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
+      if (link) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".site-header") && nav.classList.contains("is-open")) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setMenuOpen(false);
+        menuToggle.focus();
+      }
     });
   }
 
