@@ -885,9 +885,9 @@ h3 {
 .company-video {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 560px;
-  object-fit: cover;
+  height: auto;
+  max-height: min(720px, 74vh);
+  object-fit: contain;
   background: #000;
 }
 
