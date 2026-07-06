@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ristrutturiamo-x-professione-zeta.vercel.app/</loc>
+    <loc>https://www.ristrutturiamoxprofessione.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ristrutturiamo-x-professione-zeta.vercel.app/chi-siamo</loc>
+    <loc>https://www.ristrutturiamoxprofessione.com/chi-siamo</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ristrutturiamo-x-professione-zeta.vercel.app/servizi</loc>
+    <loc>https://www.ristrutturiamoxprofessione.com/servizi</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ristrutturiamo-x-professione-zeta.vercel.app/ristrutturazioni-chiavi-in-mano</loc>
+    <loc>https://www.ristrutturiamoxprofessione.com/ristrutturazioni-chiavi-in-mano</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ristrutturiamo-x-professione-zeta.vercel.app/progetti</loc>
+    <loc>https://www.ristrutturiamoxprofessione.com/progetti</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ristrutturiamo-x-professione-zeta.vercel.app/contatti</loc>
+    <loc>https://www.ristrutturiamoxprofessione.com/contatti</loc>
     <priority>0.9</priority>
   </url>
 </urlset>

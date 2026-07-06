@@ -4,14 +4,16 @@
 
 - Team/account: `ristrutturiamoxprofessione`
 - Progetto: `ristrutturiamo-x-professione`
-- URL attuale: `https://ristrutturiamo-x-professione-zeta.vercel.app`
+- Dominio principale: `https://www.ristrutturiamoxprofessione.com`
+- Redirect attivo: `https://ristrutturiamoxprofessione.com` -> `https://www.ristrutturiamoxprofessione.com`
+- URL Vercel di servizio: `https://ristrutturiamo-x-professione-zeta.vercel.app`
 
 ## Collegare il dominio
 
 1. Apri il progetto su Vercel:
    `https://vercel.com/ristrutturiamoxprofessione/ristrutturiamo-x-professione`
 2. Vai in `Settings` -> `Domains`.
-3. Inserisci il dominio, per esempio `nomedominio.it`.
+3. Inserisci il dominio, per esempio `ristrutturiamoxprofessione.com`.
 4. Vercel mostrerà i record DNS da configurare.
 5. Nel pannello del provider del dominio aggiungi i record richiesti.
 
@@ -41,6 +43,14 @@ Quando Vercel indica dominio verificato:
 2. Attiva redirect automatico da `www` a dominio principale, oppure il contrario.
 3. Aggiorna `robots.txt` e `sitemap.xml` sostituendo l'URL Vercel con il dominio definitivo.
 4. Ridistribuisci il sito.
+
+## Stato attuale
+
+Il dominio definitivo è già impostato nella sitemap:
+
+```text
+https://www.ristrutturiamoxprofessione.com
+```
 
 ## Comando deploy manuale
 
