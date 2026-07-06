@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ristrutturiamo-x-professione-zeta.vercel.app/sitemap.xml
