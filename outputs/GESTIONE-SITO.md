@@ -24,7 +24,9 @@ Sempre in `assets/js/main.js`:
 
 Gli asset sono in `assets/images` e `assets/videos`.
 
-Per sostituire una foto prima/dopo, mantieni lo stesso nome file oppure aggiorna il riferimento nella pagina `chi-siamo.html`.
+Le foto reali dei lavori sono in `assets/images/lavori-reali`. Prima di caricare nuove foto, convertili in WebP e tienili leggeri: circa 80-180 KB per immagine e larghezza massima 1400-1600 px.
+
+Per sostituire una foto prima/dopo, mantieni lo stesso nome file oppure aggiorna il riferimento nelle pagine `chi-siamo.html` e `progetti.html`.
 
 ## Pagine principali
 
